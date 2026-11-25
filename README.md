@@ -2,16 +2,13 @@
 
 **Version 1.0.0** · A Claude Code skill for short-form video editing
 
-Show real articles, blog posts and official announcements on screen as **proof** of what a speaker says, in vertical
-short videos (Reels, Shorts, TikTok). The skill teaches Claude Code exactly how to build these "evidence beats": which
-words to time them on, where to place each element, and how to check the result before rendering.
+Show real articles, blog posts and official announcements on screen as **proof** of what a speaker says, in vertical short videos (Reels, Shorts, TikTok). The skill teaches Claude Code exactly how to build these "evidence beats": which words to time them on, where to place each element, and how to check the result before rendering.
 
 ---
 
 ## What it does
 
-When the speaker makes a claim ("Seedance gives you up to 30 seconds"), the skill has Claude build a short sequence that
-proves it with the real source:
+When the speaker makes a claim ("Seedance gives you up to 30 seconds"), the skill has Claude build a short sequence that proves it with the real source:
 
 1. A paper sheet covers the screen and a numbered label pops in ("REASON 1").
 2. The real web page appears inside a dark window, with a source line underneath (publication and date).
@@ -21,6 +18,7 @@ proves it with the real source:
 6. Optionally, quick B-roll cuts illustrate a spoken list, then the edit returns to the proof.
 
 <a id="layout"></a>
+
 ```
  ┌───────────── 1080 x 1920 ─────────────┐
  │            [ REASON 1 ]   label        │
@@ -37,14 +35,10 @@ proves it with the real source:
 
 ## Main features
 
-- **Observed, not invented.** The style was extracted frame by frame from a finished, approved video. The skill keeps
-  what that video actually does (with timestamps) separate from general rules and from optional suggestions.
-- **Word-accurate timing.** Includes a tested helper that converts "time in the final video" to "time in the raw take"
-  after silences are cut, so effects never land on a removed pause.
-- **Exact engine settings.** Every zoom, ring, highlight, counter, label, B-roll and sound setting is documented with its
-  default value, checked against the rendering engine's source code.
-- **Readability rules.** How wide a highlighted phrase may be, how far to zoom, and where to centre the view so the ring
-  is never cut off.
+- **Observed, not invented.** The style was extracted frame by frame from a finished, approved video. The skill keeps what that video actually does (with timestamps) separate from general rules and from optional suggestions.
+- **Word-accurate timing.** Includes a tested helper that converts "time in the final video" to "time in the raw take" after silences are cut, so effects never land on a removed pause.
+- **Exact engine settings.** Every zoom, ring, highlight, counter, label, B-roll and sound setting is documented with its default value, checked against the rendering engine's source code.
+- **Readability rules.** How wide a highlighted phrase may be, how far to zoom, and where to centre the view so the ring is never cut off.
 - **Sound cues documented.** Which effects play automatically (and how to silence them) and which ones you add.
 - **Honesty rules.** Real pages only, real dates, a source line on screen, illustrative stock footage labelled as such.
 
@@ -59,8 +53,7 @@ This skill is a **recipe**. It does not render video by itself. You need:
 | Node.js, Google Chrome and ffmpeg | Required by the `short-editing` engine. |
 | A web browser | To capture page screenshots of your sources. |
 
-The ffmpeg example in the skill uses a Windows font path (`C:/Windows/Fonts/...`). On macOS or Linux, change it to a font
-that exists on your machine.
+The ffmpeg example in the skill uses a Windows font path (`C:/Windows/Fonts/...`). On macOS or Linux, change it to a font that exists on your machine.
 
 ## Installation
 
@@ -127,10 +120,8 @@ Tested on Windows, on one real project, in a separate scratch copy (the original
 - The browser snippet for measuring phrase positions is documented but was not run during testing.
 - Which requests trigger the skill automatically was checked against its description, not by live testing.
 - The time helper does not cover inserted pauses, inserts or an outro (see section C1 in `SKILL.md`).
-- Default positions assume a 1080 x 1920 video with the caption line around y 700. Other layouts need the positions
-  moved (explained in `SKILL.md`).
-- `SKILL.md` names the files of the original project it was extracted from (section A). Those files are **not
-  included**; they are listed only to show where each observation came from. The recipe does not need them.
+- Default positions assume a 1080 x 1920 video with the caption line around y 700. Other layouts need the positions moved (explained in `SKILL.md`).
+- `SKILL.md` names the files of the original project it was extracted from (section A). Those files are **not included**; they are listed only to show where each observation came from. The recipe does not need them.
 
 ## Files
 
